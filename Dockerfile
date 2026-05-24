@@ -10,4 +10,6 @@ RUN ./mvnw clean package -DskipTest
 
 EXPOSE 8080
 
-CMD ["java","Application"]
+RUN cp target/*.jar app.jar
+
+CMD ["java","-jar","app.jar"]
