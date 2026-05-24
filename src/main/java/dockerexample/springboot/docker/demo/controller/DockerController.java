@@ -10,4 +10,10 @@ public class DockerController {
     public String dockerDemo(){
         return "dockerizing spring boot application";
     }
+    
+    @GetMapping("/")
+    public String home(){
+        return "Hello world from docker app";
+    }   
+    
 }
