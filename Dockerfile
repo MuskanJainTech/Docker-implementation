@@ -1,9 +1,12 @@
-FROM eclipse-temurin:17
-
-LABEL mantainer = "muskanjaintech@gmail.com"
+FROM eclipse-temurin:17-jdk alphine
 
 WORKDIR /app
 
-COPY target/springboot.docker.demo-0.0.1-SNAPSHOT.jar /app/springboot.docker.demo.jar
+COPY . . 
+RUN chmod +x mvnw
 
-ENTRYPOINT ["java","-jar","springboot.docker.demo.jar"]
+RUN ./mvnw clean package -DskipTest
+
+EXPOSE 8080
+
+CMD ["java","Application"]
